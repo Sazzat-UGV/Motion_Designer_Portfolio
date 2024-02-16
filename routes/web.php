@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\backend\AboutMeController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\Auth\loginControlller;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\frontend\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('')->group(function () {
 
+    Route::get('/', [HomePageController::class, 'homePage'])->name('user.homePage');
+    Route::get('about', [HomePageController::class, 'aboutPage'])->name('user.aboutPage');
 });
+
+
 
 Route::prefix('/admin')->group(function () {
 
@@ -38,5 +45,13 @@ Route::prefix('/admin')->group(function () {
         Route::post('update/image', [AdminController::class, 'updateImage'])->name('admin.updateImage');
         Route::post('update/password', [AdminController::class, 'updatePassword'])->name('admin.updatePassword');
 
+        // about_me routes
+        Route::get('about/me',[AboutMeController::class,'showAboutMe'])->name('admin.showAboutMe');
+        Route::put('about/me/{id}',[AboutMeController::class,'updateAboutMe'])->name('admin.updateAboutMe');
+
+        // setting route
+        Route::get('setting',[SettingController::class,'settingPage'])->name('admin.settingPage');
+        Route::put('update/hiro/video/{id}',[SettingController::class,'updateHiroVideo'])->name('admin.updateHiroVideo');
+        Route::put('update/favicon/{id}',[SettingController::class,'updateFavicon'])->name('admin.updateFavicon');
     });
 });
