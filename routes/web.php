@@ -25,8 +25,6 @@ Route::prefix('')->group(function () {
     Route::get('about', [HomePageController::class, 'aboutPage'])->name('user.aboutPage');
 });
 
-
-
 Route::prefix('/admin')->group(function () {
 
     // login routes
@@ -46,12 +44,15 @@ Route::prefix('/admin')->group(function () {
         Route::post('update/password', [AdminController::class, 'updatePassword'])->name('admin.updatePassword');
 
         // about_me routes
-        Route::get('about/me',[AboutMeController::class,'showAboutMe'])->name('admin.showAboutMe');
-        Route::put('about/me/{id}',[AboutMeController::class,'updateAboutMe'])->name('admin.updateAboutMe');
+        Route::get('about/me', [AboutMeController::class, 'showAboutMe'])->name('admin.showAboutMe');
+        Route::put('about/me/{id}', [AboutMeController::class, 'updateAboutMe'])->name('admin.updateAboutMe');
 
         // setting route
-        Route::get('setting',[SettingController::class,'settingPage'])->name('admin.settingPage');
-        Route::put('update/hiro/video/{id}',[SettingController::class,'updateHiroVideo'])->name('admin.updateHiroVideo');
-        Route::put('update/favicon/{id}',[SettingController::class,'updateFavicon'])->name('admin.updateFavicon');
+        Route::get('setting', [SettingController::class, 'settingPage'])->name('admin.settingPage');
+        Route::put('update/hiro/video/{id}', [SettingController::class, 'updateHiroVideo'])->name('admin.updateHiroVideo');
+        Route::post('update/favicon', [SettingController::class, 'updateFavicon'])->name('admin.updateFavicon');
+        Route::post('update/preloader', [SettingController::class, 'updatePreloader'])->name('admin.updatePreloader');
+        Route::post('update/lottie/file', [SettingController::class, 'updateLottieFile'])->name('admin.updateLottieFile');
+        Route::post('update/json/file', [SettingController::class, 'updateJsonFile'])->name('admin.updateJsonFile');
     });
 });

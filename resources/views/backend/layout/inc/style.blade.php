@@ -1,9 +1,5 @@
 <!-- favicon -->
-
-@php
-$favicon = \App\Models\Setting::findOrFail(1)->pluck('favicon')->first();
-@endphp
-<link rel="shortcut icon" type="image/png" href="{{ asset('uploads/setting/favicon') }}/{{ $favicon }}">
+<link rel="shortcut icon" type="image/png" href="{{ asset('uploads/setting/favicon.png') }}">
 <link href="{{ asset('assets/backend') }}/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 <link href="{{ asset('assets/backend') }}/vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">

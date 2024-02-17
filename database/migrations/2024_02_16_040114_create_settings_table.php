@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->longText('hiro_video')->nullable();
-            $table->string('logo')->default('default_logo.json');
-            $table->string('favicon')->default('default_favicon.png');
             $table->timestamps();
         });
     }

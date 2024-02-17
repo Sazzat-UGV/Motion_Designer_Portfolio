@@ -13,7 +13,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         Setting::create([
-            'hiro_video' => 'dfdfdfd',
+            'hiro_video' => 'demo_link',
         ]);
     }
 }

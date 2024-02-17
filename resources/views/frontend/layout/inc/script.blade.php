@@ -34,4 +34,27 @@
  <!-- main js -->
  <script src="{{ asset('assets/frontend') }}/js/main.js"></script>
 
-@stack('user_script')
+ <!-- website logo -->
+ <script src="{{ asset('uploads/setting/logo_lottie_file.js') }}"></script>
+ <script>
+     var animation = bodymovin.loadAnimation({
+         container: document.getElementById('bm-dark'),
+         renderer: 'svg',
+         loop: true,
+         autoplay: true,
+         path: '{{ asset('uploads/setting/logo_json_file.json') }}'
+     })
+ </script>
+ <script>
+     var animation = bodymovin.loadAnimation({
+         container: document.getElementById('bm-light'),
+         renderer: 'svg',
+         loop: true,
+         autoplay: true,
+         path: '{{ asset('uploads/setting/logo_json_file.json') }}'
+     })
+ </script>
+
+
+
+ @stack('user_script')

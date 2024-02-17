@@ -1,7 +1,4 @@
-    @php
-         $favicon = \App\Models\Setting::findOrFail(1)->pluck('favicon')->first();
-    @endphp
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('uploads/setting/favicon') }}/{{ $favicon }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('uploads/setting/favicon.png') }}">
     <!-- Bootstrap v4.4.1 css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend') }}/css/bootstrap.min.css">
     <!-- font-awesome css -->

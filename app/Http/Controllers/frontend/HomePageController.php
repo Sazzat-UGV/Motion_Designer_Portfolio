@@ -13,7 +13,7 @@ class HomePageController extends Controller
     $setting=Setting::findOrFail(1)->first();
     return view('frontend.pages.home',compact('setting'));
    }
-   
+
 
    public function aboutPage(){
     $about_me=About::whereId(1)->select('id','about_me','image')->first();
