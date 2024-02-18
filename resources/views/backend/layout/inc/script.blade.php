@@ -8,14 +8,6 @@
 <script src="{{ asset('assets/backend') }}/js/dashboard/dashboard-1.js"></script>
 <script src="{{ asset('assets/backend') }}/vendor/draggable/draggable.js"></script>
 
-<!-- tagify -->
-<script src="{{ asset('assets/backend') }}/vendor/tagify/dist/tagify.js"></script>
-<script src="{{ asset('assets/backend') }}/vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="{{ asset('assets/backend') }}/vendor/datatables/js/dataTables.buttons.min.js"></script>
-<script src="{{ asset('assets/backend') }}/vendor/datatables/js/buttons.html5.min.js"></script>
-<script src="{{ asset('assets/backend') }}/vendor/datatables/js/jszip.min.js"></script>
-<script src="{{ asset('assets/backend') }}/js/plugins-init/datatables.init.js"></script>
-
 <!-- Apex Chart -->
 <script src="{{ asset('assets/backend') }}/vendor/bootstrap-datetimepicker/js/moment.js"></script>
 <script src="{{ asset('assets/backend') }}/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>

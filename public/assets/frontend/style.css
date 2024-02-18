@@ -2,8 +2,8 @@
 
 
 @charset "utf-8";
-/** 
-* 
+/**
+*
 /* -----------------------------------
     General CSS
 -------------------------------------*/
@@ -26,6 +26,7 @@ p {
   margin: 0 0 20px;
   line-height: 1.8;
 }
+
 h1,
 h2,
 h3,
@@ -1851,9 +1852,9 @@ video {
   transform: translate(-50%, -50%);
   width: 80px;
 }
-.loader .loader-icon img {
+/* .loader .loader-icon img {
   animation: loaderpulse alternate 900ms infinite;
-}
+} */
 .loader.orange-color .loader-container:before {
   border-color: #fb0b0c;
 }

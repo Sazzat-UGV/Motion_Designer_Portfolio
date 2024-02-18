@@ -138,7 +138,7 @@
                                 <div class="col-sm-12 m-b30">
                                     <label class="form-label">About Me
                                         <span class="text-danger">*</span></label>
-                                    <textarea name="about_me" id="editor" cols="30" rows="10"
+                                    <textarea name="about_me" id="#" cols="30" rows="10"
                                         class="form-control @error('about_me')
                                 is-invalid
                                 @enderror">{{ $about_me->about_me }}</textarea>

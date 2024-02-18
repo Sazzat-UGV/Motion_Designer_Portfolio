@@ -4,8 +4,10 @@ use App\Http\Controllers\backend\AboutMeController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\Auth\loginControlller;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\ProjectController;
 use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\frontend\HomePageController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,5 +56,8 @@ Route::prefix('/admin')->group(function () {
         Route::post('update/preloader', [SettingController::class, 'updatePreloader'])->name('admin.updatePreloader');
         Route::post('update/lottie/file', [SettingController::class, 'updateLottieFile'])->name('admin.updateLottieFile');
         Route::post('update/json/file', [SettingController::class, 'updateJsonFile'])->name('admin.updateJsonFile');
+
+        // resourse controller
+        Route::resource('project',ProjectController::class);
     });
 });

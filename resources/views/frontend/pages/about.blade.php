@@ -14,7 +14,7 @@ About
             </div>
             <div class="col-lg-7">
                 <h2 class="about-title">About me</h2>
-                <p>{!! $about_me->about_me !!}</p>
+                <p class="" style="text-align: justify">{{ $about_me->about_me }}</p>
             </div>
         </div>
 
