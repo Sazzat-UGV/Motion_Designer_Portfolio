@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\backend;
 
-use Image;
-use App\Models\Project;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use Brian2694\Toastr\Facades\Toastr;
-use GuzzleHttp\Handler\Proxy;
-use Nette\Utils\Finder;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Image;
 
 class ProjectController extends Controller
 {
@@ -18,8 +16,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects=Project::select('id','project_title','project_title_slug','thumbnail','created_at')->latest('id')->paginate();
-        return view('backend.pages.project.all_project',compact('projects'));
+        $projects = Project::select('id', 'project_title', 'project_title_slug', 'thumbnail', 'created_at')->latest('id')->paginate();
+        return view('backend.pages.project.all_project', compact('projects'));
     }
 
     /**
@@ -35,7 +33,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $validation=$request->validate([
+        $validation = $request->validate([
             'project_title' => 'required|string|max:255|unique:projects,project_title',
             'short_description' => 'required|string|max:20000',
             'title_1' => 'nullable|string|max:255',
@@ -48,23 +46,23 @@ class ProjectController extends Controller
             'title_4_description' => 'nullable|string|max:20000',
             'video_link' => 'required|string',
             'behance_link' => 'required|string',
-            'thumbnail' =>'required|mimes:png,jpg|max:10240'
+            'thumbnail' => 'required|mimes:png,jpg|max:10240',
         ]);
 
-        $project=Project::create([
-            'project_title'=>$request->project_title,
-            'project_title_slug'=>Str::slug($request->project_title),
-            'short_description'=>$request->short_description,
-            'title_1'=>$request->title_1,
-            'title_1_description'=>$request->title_1_description,
-            'title_2'=>$request->title_2,
-            'title_2_description'=>$request->title_2_description,
-            'title_3'=>$request->title_3,
-            'title_3_description'=>$request->title_3_description,
-            'title_4'=>$request->title_4,
-            'title_4_description'=>$request->title_4_description,
-            'video_link'=>$request->video_link,
-            'behance_link'=>$request->behance_link,
+        $project = Project::create([
+            'project_title' => $request->project_title,
+            'project_title_slug' => Str::slug($request->project_title),
+            'short_description' => $request->short_description,
+            'title_1' => $request->title_1,
+            'title_1_description' => $request->title_1_description,
+            'title_2' => $request->title_2,
+            'title_2_description' => $request->title_2_description,
+            'title_3' => $request->title_3,
+            'title_3_description' => $request->title_3_description,
+            'title_4' => $request->title_4,
+            'title_4_description' => $request->title_4_description,
+            'video_link' => $request->video_link,
+            'behance_link' => $request->behance_link,
         ]);
 
         $this->image_upload($request, $project->id);
@@ -75,9 +73,10 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $project = Project::where('project_title_slug', $slug)->first();
+        return view('backend.pages.project.project_detail', compact('project'));
     }
 
     /**
@@ -85,8 +84,8 @@ class ProjectController extends Controller
      */
     public function edit(string $slug)
     {
-        $project=Project::where('project_title_slug',$slug)->first();
-        return view('backend.pages.project.edit',compact('project'));
+        $project = Project::where('project_title_slug', $slug)->first();
+        return view('backend.pages.project.edit', compact('project'));
     }
 
     /**
@@ -94,9 +93,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $slug)
     {
-        $project=Project::where('project_title_slug',$slug)->first();
-        $validation=$request->validate([
-            'project_title' => 'required|string|max:255|unique:projects,project_title,'.$project->id,
+        $project = Project::where('project_title_slug', $slug)->first();
+        $validation = $request->validate([
+            'project_title' => 'required|string|max:255|unique:projects,project_title,' . $project->id,
             'short_description' => 'required|string|max:20000',
             'title_1' => 'nullable|string|max:255',
             'title_1_description' => 'nullable|string|max:20000',
@@ -108,23 +107,23 @@ class ProjectController extends Controller
             'title_4_description' => 'nullable|string|max:20000',
             'video_link' => 'required|string',
             'behance_link' => 'required|string',
-            'thumbnail' =>'nullable|mimes:png,jpg|max:10240'
+            'thumbnail' => 'nullable|mimes:png,jpg|max:10240',
         ]);
-        $project=Project::where('project_title_slug',$slug)->first();
+        $project = Project::where('project_title_slug', $slug)->first();
         $project->update([
-            'project_title'=>$request->project_title,
-            'project_title_slug'=>Str::slug($request->project_title),
-            'short_description'=>$request->short_description,
-            'title_1'=>$request->title_1,
-            'title_1_description'=>$request->title_1_description,
-            'title_2'=>$request->title_2,
-            'title_2_description'=>$request->title_2_description,
-            'title_3'=>$request->title_3,
-            'title_3_description'=>$request->title_3_description,
-            'title_4'=>$request->title_4,
-            'title_4_description'=>$request->title_4_description,
-            'video_link'=>$request->video_link,
-            'behance_link'=>$request->behance_link,
+            'project_title' => $request->project_title,
+            'project_title_slug' => Str::slug($request->project_title),
+            'short_description' => $request->short_description,
+            'title_1' => $request->title_1,
+            'title_1_description' => $request->title_1_description,
+            'title_2' => $request->title_2,
+            'title_2_description' => $request->title_2_description,
+            'title_3' => $request->title_3,
+            'title_3_description' => $request->title_3_description,
+            'title_4' => $request->title_4,
+            'title_4_description' => $request->title_4_description,
+            'video_link' => $request->video_link,
+            'behance_link' => $request->behance_link,
         ]);
 
         $this->image_upload($request, $project->id);
@@ -136,11 +135,19 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $slug)
     {
-        //
+        $project = Project::where('project_title_slug', $slug)->first();
+        if ($project->thumbnail != 'default_thumbnail.jpg') {
+            //delete old photo
+            $photo_location = 'public/uploads/project/';
+            $old_photo_location = $photo_location . $project->thumbnail;
+            unlink(base_path($old_photo_location));
+        }
+        $project->delete();
+        Toastr::success('Project delete successfully');
+        return redirect()->route('project.index');
     }
-
 
     public function image_upload($request, $project_id)
     {
@@ -162,5 +169,19 @@ class ProjectController extends Controller
                 'thumbnail' => $new_photo_name,
             ]);
         }
+    }
+
+    public function activeProject($id){
+        $project=Project::find($id);
+        if($project->is_active=='1'){
+            $status=0;
+        }else{
+            $status=1;
+        }
+        $project->update([
+            'is_active'=>$status,
+        ]);
+        Toastr::success('Project status has been updated');
+        return back();
     }
 }

@@ -3,7 +3,6 @@
     Edit Project
 @endsection
 @push('admin_style')
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css"
         integrity="sha512-In/+MILhf6UMDJU4ZhDL0R0fEpsp4D3Le23m6+ujDWXwl3whwpucJG1PEmI3B07nyJx+875ccs+yX2CqQJUxUw=="
@@ -161,7 +160,7 @@
                                 </div>
                                 <div class="col-sm-12 m-b30">
                                     <label class="form-label">Video Link<span class="text-danger">*</span></label>
-                                    <textarea name="video_link" id="editor" cols="30" rows="10"
+                                    <textarea name="video_link" id="#" cols="30" rows="5"
                                         class="form-control @error('video_link')
                                     is-invalid
                                     @enderror">{{ old('video_link', $project->video_link) }}</textarea>
@@ -196,19 +195,10 @@
     </div>
 @endsection
 @push('admin_script')
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
         integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
 
     <script>
         $(document).ready(function() {

@@ -25,6 +25,7 @@ Route::prefix('')->group(function () {
 
     Route::get('/', [HomePageController::class, 'homePage'])->name('user.homePage');
     Route::get('about', [HomePageController::class, 'aboutPage'])->name('user.aboutPage');
+    Route::get('details/{slug}', [HomePageController::class, 'projectDetails'])->name('user.projectDetails');
 });
 
 Route::prefix('/admin')->group(function () {
@@ -59,5 +60,8 @@ Route::prefix('/admin')->group(function () {
 
         // resourse controller
         Route::resource('project',ProjectController::class);
+
+        //activation route
+        Route::get('project/active/{id}',[ProjectController::class,'activeProject'])->name('admin.activeProject');
     });
 });

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('title_4')->nullable();
             $table->longText('title_4_description')->nullable();
             $table->string('thumbnail')->default('default_thumbnail.jpg');
-            $table->string('video_link');
+            $table->longText('video_link');
             $table->string('behance_link');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
