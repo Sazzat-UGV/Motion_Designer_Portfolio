@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AboutMeController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\Auth\loginControlller;
+use App\Http\Controllers\backend\BackupController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\ProjectController;
 use App\Http\Controllers\backend\SettingController;
