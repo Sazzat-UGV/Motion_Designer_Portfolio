@@ -20,8 +20,8 @@
                                     <span class="text-danger">*</span></label>
                                 <textarea name="hiro_video" id="" cols="30" rows="5"
                                     class="form-control @error('hiro_video')
-                    is-invalid
-                    @enderror">{{ $setting->hiro_video }}</textarea>
+                                is-invalid
+                                @enderror">{{ $setting->hiro_video }}</textarea>
                                 @error('hiro_video')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
@@ -96,7 +96,7 @@
             <div class="card profile-card card-bx m-b30">
                 <div class="card-body">
                     <div class="row">
-                        <form action="{{ route('admin.updateLottieFile') }}" enctype="multipart/form-data"
+                        <form action="{{ route('admin.updateLogoFiles') }}" enctype="multipart/form-data"
                             class="profile-form" method="POST">
                             @csrf
                             <div class="col-sm-12 m-b30">
@@ -108,25 +108,7 @@
                                 @error('lottie_file')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
-
                             </div>
-                            <div class="card-footer">
-                                <button class="btn btn-primary px-4">UPDATE</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="col-12">
-            <div class="card profile-card card-bx m-b30">
-                <div class="card-body">
-                    <div class="row">
-                        <form action="{{ route('admin.updateJsonFile') }}" enctype="multipart/form-data"
-                            class="profile-form" method="POST">
-                            @csrf
                             <div class="col-sm-12 m-b30">
                                 <label class="form-label">Json File<span class="text-danger">*</span></label>
                                 <input type="file" name="json_file"
@@ -147,6 +129,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 @push('admin_script')
 @endpush

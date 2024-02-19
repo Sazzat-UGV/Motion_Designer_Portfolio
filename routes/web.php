@@ -26,7 +26,7 @@ Route::prefix('')->group(function () {
 
     Route::get('/', [HomePageController::class, 'homePage'])->name('user.homePage');
     Route::get('about', [HomePageController::class, 'aboutPage'])->name('user.aboutPage');
-    Route::get('details/{slug}', [HomePageController::class, 'projectDetails'])->name('user.projectDetails');
+    Route::get('project/{slug}', [HomePageController::class, 'projectDetails'])->name('user.projectDetails');
 });
 
 Route::prefix('/admin')->group(function () {
@@ -56,8 +56,7 @@ Route::prefix('/admin')->group(function () {
         Route::put('update/hiro/video/{id}', [SettingController::class, 'updateHiroVideo'])->name('admin.updateHiroVideo');
         Route::post('update/favicon', [SettingController::class, 'updateFavicon'])->name('admin.updateFavicon');
         Route::post('update/preloader', [SettingController::class, 'updatePreloader'])->name('admin.updatePreloader');
-        Route::post('update/lottie/file', [SettingController::class, 'updateLottieFile'])->name('admin.updateLottieFile');
-        Route::post('update/json/file', [SettingController::class, 'updateJsonFile'])->name('admin.updateJsonFile');
+        Route::post('update/logo/file', [SettingController::class, 'updateLogoFiles'])->name('admin.updateLogoFiles');
 
         // resourse controller
         Route::resource('project',ProjectController::class);

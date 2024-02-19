@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-6 active-p">
+            <div class="col-12 active-p">
                 <div class="card">
                     <div class="card-body p-0">
                         <div class="table-responsive active-projects shorting">

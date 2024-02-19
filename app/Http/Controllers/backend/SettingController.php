@@ -78,54 +78,34 @@ class SettingController extends Controller
         }
     }
 
-    public function updateLottieFile(Request $request)
+    public function updateLogoFiles(Request $request)
     {
         $request->validate([
             'lottie_file' => 'required',
-        ]);
-
-        if ($request->hasFile('lottie_file')) {
-            $file = $request->file('lottie_file');
-
-            if ($file->getClientOriginalExtension() === 'js') {
-                $uploaded_photo = $request->file('lottie_file');
-                $fileName = 'logo_lottie_file' . '.' . $uploaded_photo->getClientOriginalExtension();
-                $upload = $file->move(public_path('uploads/setting'), $fileName);
-                Toastr::success("File uploaded successfully");
-                return back();
-            } else {
-                Toastr::error("Please upload a js file");
-                return back();
-            }
-        } else {
-            Toastr::error("Please upload a js file first");
-            return back();
-        }
-    }
-
-    public function updateJsonFile(Request $request)
-    {
-        $request->validate([
             'json_file' => 'required',
         ]);
 
-        if ($request->hasFile('json_file')) {
+        if ($request->hasFile('json_file') || $request->hasFile('lottie_file')) {
             $file = $request->file('json_file');
+            $file1 = $request->file('lottie_file');
 
             if ($file->getClientOriginalExtension() === 'json') {
                 $uploaded_photo = $request->file('json_file');
                 $fileName = 'logo_json_file' . '.' . $uploaded_photo->getClientOriginalExtension();
                 $upload = $file->move(public_path('uploads/setting'), $fileName);
-                Toastr::success("File uploaded successfully");
-                return back();
-            } else {
-                Toastr::error("Please upload a json file");
-                return back();
+            }
+
+            if ($file1->getClientOriginalExtension() === 'js') {
+                $uploaded_photo = $request->file('lottie_file');
+                $fileName = 'logo_lottie_file' . '.' . $uploaded_photo->getClientOriginalExtension();
+                $upload = $file1->move(public_path('uploads/setting'), $fileName);
             }
         } else {
-            Toastr::error("Please upload a json file first");
+            Toastr::error("Please upload a json and js file first");
             return back();
         }
+        Toastr::success("File uploaded successfully");
+        return back();
     }
 
 }

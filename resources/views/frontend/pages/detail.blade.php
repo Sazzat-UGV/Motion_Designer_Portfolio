@@ -1,6 +1,6 @@
 @extends('frontend.layout.master')
 @section('title')
-Detail
+{{ $project->project_title }}
 @endsection
 @push('user_style')
 
