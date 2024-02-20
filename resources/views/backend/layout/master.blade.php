@@ -8,7 +8,8 @@
     <meta name="author" content="">
     <meta name="robots" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="description" content="2D Motion Designer and Animator based in Bangladesh.">
+    
     <title> @yield('title') </title>
     @include('backend.layout.inc.style')
 

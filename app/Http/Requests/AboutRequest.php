@@ -26,7 +26,7 @@ class AboutRequest extends FormRequest
             'about_me' => 'required|string',
             'email' => 'required|email|max:255',
             'image' => 'nullable|mimes:png,jpg|max:10240',
-            'phone' => 'required|string|max:12',
+            'phone' => 'required|string|max:18',
             'location' => 'required|string|max:255',
             'instagram' => 'required|string|max:255',
             'linkedin' => 'required|string|max:255',

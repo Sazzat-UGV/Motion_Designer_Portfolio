@@ -14,7 +14,8 @@
     <!-- responsive tag -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="description" content="2D Motion Designer and Animator based in Bangladesh.">
+    
     @include('frontend.layout.inc.style')
 </head>
 

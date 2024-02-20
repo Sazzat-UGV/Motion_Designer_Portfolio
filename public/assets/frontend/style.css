@@ -327,6 +327,18 @@ blockquote p {
  Global Class CSS
 ---------------------------------------*/
 .y-middle {
+  /* display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center; */
+
+
+
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -335,7 +347,8 @@ blockquote p {
   flex-wrap: wrap;
   -ms-flex-align: center;
   -webkit-align-items: center;
-  align-items: center;
+  /* align-items: center; */
+  
 }
 
 

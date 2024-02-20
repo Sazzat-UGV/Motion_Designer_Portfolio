@@ -32,7 +32,7 @@
                             <a href="{{ route('user.projectDetails', ['slug' => $project->project_title_slug]) }}">
                                 <h4 class="mt-4">{{ $project->project_title }}</h4>
                             </a>
-                            <p class="text-justify">{{ Str::limit($project->short_description, 400, '...') }}</p>
+                            <p>{{ Str::limit($project->short_description, 400, '...') }}</p>
                         </div>
                     </div>
                 @endforeach
