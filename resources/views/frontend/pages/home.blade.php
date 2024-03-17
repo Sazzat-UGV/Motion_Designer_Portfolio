@@ -10,12 +10,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
-                    {!! $setting->hiro_video !!}
+                    <a href="{{ route('user.reelPage') }}" class="text-center align-items-center"><img class="img-fluid"
+                            src="{{ asset('uploads/setting/hiro_image.jpg') }}" alt="Hiro video"></a>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- card Section Start -->
     <div class="card-section bg-wrap ">
         <div class="container">

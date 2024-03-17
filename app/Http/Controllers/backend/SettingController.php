@@ -15,19 +15,6 @@ class SettingController extends Controller
         return view('backend.pages.setting', compact('setting'));
     }
 
-    public function updateHiroVideo(Request $request, $id)
-    {
-        $validate = $request->validate([
-            'hiro_video' => 'required|string',
-        ]);
-        $setting = Setting::findOrFail($id);
-        $setting->update([
-            'hiro_video' => $request->hiro_video,
-        ]);
-        Toastr::success('Hiro video link has been updated');
-        return back();
-    }
-
     public function updateFavicon(Request $request)
     {
         $request->validate([

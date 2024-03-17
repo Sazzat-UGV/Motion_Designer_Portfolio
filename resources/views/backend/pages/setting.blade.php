@@ -6,35 +6,6 @@
 @endpush
 @section('content')
     @include('backend.layout.inc.breadcrumb', ['main_page' => 'Settings'])
-    <div class="container-fluid">
-        <div class="col-12">
-            <div class="card profile-card card-bx m-b30">
-                <div class="card-body">
-                    <div class="row">
-
-                        <form action="{{ route('admin.updateHiroVideo', ['id' => 1]) }}" class="profile-form" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="col-sm-12 m-b30">
-                                <label class="form-label">Hiro Video
-                                    <span class="text-danger">*</span></label>
-                                <textarea name="hiro_video" id="" cols="30" rows="5"
-                                    class="form-control @error('hiro_video')
-                                is-invalid
-                                @enderror">{{ $setting->hiro_video }}</textarea>
-                                @error('hiro_video')
-                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
-                            </div>
-                            <div class="card-footer">
-                                <button class="btn btn-primary px-4">UPDATE</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container-fluid">
         <div class="col-12">
@@ -129,7 +100,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @push('admin_script')
 @endpush

@@ -32,6 +32,9 @@
                                                     aria-hidden="true"></i></span> --}}
                                         </li>
                                         <li class="menu ">
+                                            <a href="{{ route('user.reelPage') }}">Reel</a>
+                                        </li>
+                                        <li class="menu ">
                                             <a href="{{ route('user.aboutPage') }}">About / Contact</a>
                                         </li>
                                     </ul> <!-- //.nav-menu -->

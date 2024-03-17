@@ -3,12 +3,11 @@
 use App\Http\Controllers\backend\AboutMeController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\Auth\loginControlller;
-use App\Http\Controllers\backend\BackupController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\HiroSettingController;
 use App\Http\Controllers\backend\ProjectController;
 use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\frontend\HomePageController;
-use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +25,7 @@ Route::prefix('')->group(function () {
 
     Route::get('/', [HomePageController::class, 'homePage'])->name('user.homePage');
     Route::get('about', [HomePageController::class, 'aboutPage'])->name('user.aboutPage');
+    Route::get('reel', [HomePageController::class, 'reelPage'])->name('user.reelPage');
     Route::get('project/{slug}', [HomePageController::class, 'projectDetails'])->name('user.projectDetails');
 });
 
@@ -53,15 +53,18 @@ Route::prefix('/admin')->group(function () {
 
         // setting route
         Route::get('setting', [SettingController::class, 'settingPage'])->name('admin.settingPage');
-        Route::put('update/hiro/video/{id}', [SettingController::class, 'updateHiroVideo'])->name('admin.updateHiroVideo');
         Route::post('update/favicon', [SettingController::class, 'updateFavicon'])->name('admin.updateFavicon');
         Route::post('update/preloader', [SettingController::class, 'updatePreloader'])->name('admin.updatePreloader');
         Route::post('update/logo/file', [SettingController::class, 'updateLogoFiles'])->name('admin.updateLogoFiles');
 
+        // hiro setting route
+        Route::get('hiro/setting', [HiroSettingController::class, 'hirosettingPage'])->name('admin.hirosettingPage');
+        Route::put('update/hiro/video/{id}', [HiroSettingController::class, 'updateHiroVideo'])->name('admin.updateHiroVideo');
+
         // resourse controller
-        Route::resource('project',ProjectController::class);
+        Route::resource('project', ProjectController::class);
 
         //activation route
-        Route::get('project/active/{id}',[ProjectController::class,'activeProject'])->name('admin.activeProject');
+        Route::get('project/active/{id}', [ProjectController::class, 'activeProject'])->name('admin.activeProject');
     });
 });

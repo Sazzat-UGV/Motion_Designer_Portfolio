@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Project;
 use App\Models\Setting;
+use App\Models\HiroSettingInfo;
+use App\Http\Controllers\Controller;
 
 class HomePageController extends Controller
 {
@@ -26,5 +27,11 @@ class HomePageController extends Controller
     {
         $project = Project::where('project_title_slug', $slug)->first();
         return view('frontend.pages.detail', compact('project'));
+    }
+
+    public function reelPage(){
+        $setting = Setting::findOrFail(1)->first();
+        $hiro_setting = HiroSettingInfo::findOrFail(1);
+        return view('frontend.pages.reel',compact('setting','hiro_setting'));
     }
 }
