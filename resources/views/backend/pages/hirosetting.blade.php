@@ -25,7 +25,7 @@
                                 <label class="form-label">Hiro Image
                                     <span class="text-danger">*</span></label>
                                 <input type="file" name="hiro_image"
-                                    data-default-file="{{ asset('uploads/setting/hiro_image.jpg') }}"
+                                    data-default-file="{{ asset('uploads/setting') }}/{{ $hiro_setting->hiro_image }}"
                                     class="dropify
                                     @error('hiro_image')
                                 is-invalid

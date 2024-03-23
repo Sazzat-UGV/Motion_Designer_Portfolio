@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
                     <a href="{{ route('user.reelPage') }}" class="text-center align-items-center"><img class="img-fluid"
-                            src="{{ asset('uploads/setting/hiro_image.jpg') }}" alt="Hiro video"></a>
+                            src="{{ asset('uploads/setting') }}/{{ $hiro_setting->hiro_image }}" alt="Hiro video"></a>
                 </div>
             </div>
         </div>

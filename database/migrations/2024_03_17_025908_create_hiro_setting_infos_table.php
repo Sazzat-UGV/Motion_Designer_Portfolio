@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('hiro_setting_infos', function (Blueprint $table) {
             $table->id();
             $table->string('hero_main_title');
+            $table->string('hiro_image')->nullable();
             $table->string('hero_title_1');
             $table->longText('hero_title_1_description');
             $table->string('hero_title_2')->nullable();

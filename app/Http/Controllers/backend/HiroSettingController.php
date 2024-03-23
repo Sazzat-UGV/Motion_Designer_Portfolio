@@ -20,7 +20,6 @@ class HiroSettingController extends Controller
     public function updateHiroVideo(Request $request, $id)
     {
         $validate = $request->validate([
-            'hiro_image' => 'nullable|mimes:png,jpg|max:10240',
             'hiro_video' => 'required|string',
             'hero_main_title' => 'required|string|max:255',
             'hero_title_1' => 'required|string|max:255',
@@ -56,6 +55,9 @@ class HiroSettingController extends Controller
             $uploaded_photo = $request->file('hiro_image');
             $fileName = 'hiro_image' . '.' . $uploaded_photo->getClientOriginalExtension();
             $upload = $file->move(public_path('uploads/setting'), $fileName);
+            $hiro_setting->update([
+                'hiro_image' => $fileName,
+            ]);
         }
         Toastr::success('Hiro video setting has been updated');
         return back();
